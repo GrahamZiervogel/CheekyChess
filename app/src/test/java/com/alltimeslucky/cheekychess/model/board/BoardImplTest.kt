@@ -1,9 +1,6 @@
 package com.alltimeslucky.cheekychess.model.board
 
-import com.alltimeslucky.cheekychess.model.piece.Knight
-import com.alltimeslucky.cheekychess.model.piece.Piece
-import com.alltimeslucky.cheekychess.model.piece.PieceFactoryImpl
-import com.alltimeslucky.cheekychess.model.piece.Rook
+import com.alltimeslucky.cheekychess.model.piece.*
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
@@ -26,8 +23,68 @@ class BoardImplTest {
         var piece: Piece? = boardImpl.getGridElement(0, 0)
         assertTrue(piece is Rook)
 
-        piece = boardImpl.getGridElement(0, 1)
+        var row = 0
+
+        piece = boardImpl.getGridElement(row, 1)
         assertTrue(piece is Knight)
+
+        piece = boardImpl.getGridElement(row, 2)
+        assertTrue(piece is Bishop)
+
+        piece = boardImpl.getGridElement(row, 3)
+        assertTrue(piece is Queen)
+
+        piece = boardImpl.getGridElement(row, 4)
+        assertTrue(piece is King)
+
+        piece = boardImpl.getGridElement(row, 5)
+        assertTrue(piece is Bishop)
+
+        piece = boardImpl.getGridElement(row, 6)
+        assertTrue(piece is Knight)
+
+        piece = boardImpl.getGridElement(row, 7)
+        assertTrue(piece is Rook)
+
+        row = 1
+
+        for (column in 0 until boardImpl.getGridWidth()) {
+            piece = boardImpl.getGridElement(row, column)
+            assertTrue(piece is Pawn)
+        }
+
+        row = 6
+
+        for (column in 0 until boardImpl.getGridWidth()) {
+            piece = boardImpl.getGridElement(row, column)
+            assertTrue(piece is Pawn)
+        }
+
+        row = 7
+
+        piece = boardImpl.getGridElement(row, 0)
+        assertTrue(piece is Rook)
+
+        piece = boardImpl.getGridElement(row, 1)
+        assertTrue(piece is Knight)
+
+        piece = boardImpl.getGridElement(row, 2)
+        assertTrue(piece is Bishop)
+
+        piece = boardImpl.getGridElement(row, 3)
+        assertTrue(piece is King)
+
+        piece = boardImpl.getGridElement(row, 4)
+        assertTrue(piece is Queen)
+
+        piece = boardImpl.getGridElement(row, 5)
+        assertTrue(piece is Bishop)
+
+        piece = boardImpl.getGridElement(row, 6)
+        assertTrue(piece is Knight)
+
+        piece = boardImpl.getGridElement(row, 7)
+        assertTrue(piece is Rook)
 
     }
 }
