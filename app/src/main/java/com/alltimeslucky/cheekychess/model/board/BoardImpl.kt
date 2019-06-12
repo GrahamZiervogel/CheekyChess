@@ -55,13 +55,9 @@ class BoardImpl(private val pieceFactory: PieceFactory) : Board {
         return pieceGrid[row][column]
     }
 
-    fun getGridWidth(): Int {
-        return WIDTH
-    }
-
     companion object {
         private const val HEIGHT = 8
-        private const val WIDTH = 8
+        const val WIDTH = 8
     }
 
 }

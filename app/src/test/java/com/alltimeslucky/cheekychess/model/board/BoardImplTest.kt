@@ -48,14 +48,14 @@ class BoardImplTest {
 
         row = 1
 
-        for (column in 0 until boardImpl.getGridWidth()) {
+        for (column in 0 until BoardImpl.WIDTH) {
             piece = boardImpl.getGridElement(row, column)
             assertTrue(piece is Pawn)
         }
 
         row = 6
 
-        for (column in 0 until boardImpl.getGridWidth()) {
+        for (column in 0 until BoardImpl.WIDTH) {
             piece = boardImpl.getGridElement(row, column)
             assertTrue(piece is Pawn)
         }
