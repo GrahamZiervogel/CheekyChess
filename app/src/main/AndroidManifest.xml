@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) All Times Lucky. All rights reserved.
+  ~ Licensed under the GNU Lesser General Public License v3.0. See LICENCE file in the project root for full licence information.
+  ~
+  -->
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.alltimeslucky.cheekychess">
 

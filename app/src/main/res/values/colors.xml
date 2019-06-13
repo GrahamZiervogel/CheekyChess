@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) All Times Lucky. All rights reserved.
+  ~ Licensed under the GNU Lesser General Public License v3.0. See LICENCE file in the project root for full licence information.
+  ~
+  -->
+
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
