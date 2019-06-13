@@ -1,12 +1,11 @@
 package com.alltimeslucky.cheekychess.model.piece
 
-import org.junit.Test
-
-import org.junit.Assert.*
+import org.junit.Assert.assertNotSame
+import org.junit.Assert.assertTrue
 import org.junit.Before
+import org.junit.Test
 import kotlin.properties.Delegates
 
-@Suppress("USELESS_IS_CHECK")
 class PieceFactoryImplTest {
 
     private var pieceFactoryImpl: PieceFactoryImpl by Delegates.notNull()
@@ -17,103 +16,103 @@ class PieceFactoryImplTest {
     }
 
     @Test
-    fun getBishop_shouldReturnRook() {
+    fun makeNewBishop_shouldReturnRook() {
 
-        val bishop = pieceFactoryImpl.getBishop()
+        val bishop: Piece = pieceFactoryImpl.makeNewBishop()
 
         assertTrue(bishop is Bishop)
     }
 
     @Test
-    fun getBishop_shouldReturnNewBishop() {
+    fun makeNewBishop_shouldReturnNewBishop() {
 
-        val bishop1 = pieceFactoryImpl.getBishop()
-        val bishop2 = pieceFactoryImpl.getBishop()
+        val bishop1 = pieceFactoryImpl.makeNewBishop()
+        val bishop2 = pieceFactoryImpl.makeNewBishop()
 
         assertNotSame(bishop1, bishop2)
     }
 
     @Test
-    fun getKing_shouldReturnKing() {
+    fun makeNewKing_shouldReturnKing() {
 
-        val king = pieceFactoryImpl.getKing()
+        val king: Piece = pieceFactoryImpl.makeNewKing()
 
         assertTrue(king is King)
     }
 
     @Test
-    fun getKing_shouldReturnNewKing() {
+    fun makeNewKing_shouldReturnNewKing() {
 
-        val king1 = pieceFactoryImpl.getKing()
-        val king2 = pieceFactoryImpl.getKing()
+        val king1 = pieceFactoryImpl.makeNewKing()
+        val king2 = pieceFactoryImpl.makeNewKing()
 
         assertNotSame(king1, king2)
     }
 
     @Test
-    fun getKnight_shouldReturnKnight() {
+    fun makeNewKnight_shouldReturnKnight() {
 
-        val knight = pieceFactoryImpl.getKnight()
+        val knight: Piece = pieceFactoryImpl.makeNewKnight()
 
         assertTrue(knight is Knight)
     }
 
     @Test
-    fun getKnight_shouldReturnNewKnight() {
+    fun makeNewKnight_shouldReturnNewKnight() {
 
-        val knight1 = pieceFactoryImpl.getKnight()
-        val knight2 = pieceFactoryImpl.getKnight()
+        val knight1 = pieceFactoryImpl.makeNewKnight()
+        val knight2 = pieceFactoryImpl.makeNewKnight()
 
         assertNotSame(knight1, knight2)
     }
 
     @Test
-    fun getPawn_shouldReturnPawn() {
+    fun makeNewPawn_shouldReturnPawn() {
 
-        val pawn = pieceFactoryImpl.getPawn()
+        val pawn: Piece = pieceFactoryImpl.makeNewPawn()
 
         assertTrue(pawn is Pawn)
     }
 
     @Test
-    fun getPawn_shouldReturnNewPawn() {
+    fun makeNewPawn_shouldReturnNewPawn() {
 
-        val pawn1 = pieceFactoryImpl.getPawn()
-        val pawn2 = pieceFactoryImpl.getPawn()
+        val pawn1 = pieceFactoryImpl.makeNewPawn()
+        val pawn2 = pieceFactoryImpl.makeNewPawn()
 
         assertNotSame(pawn1, pawn2)
     }
 
     @Test
-    fun getQueen_shouldReturnQueen() {
+    fun makeNewQueen_shouldReturnQueen() {
 
-        val queen = pieceFactoryImpl.getQueen()
+        val queen: Piece = pieceFactoryImpl.makeNewQueen()
 
         assertTrue(queen is Queen)
     }
 
     @Test
-    fun getQueen_shouldReturnNewQueen() {
+    fun makeNewQueen_shouldReturnNewQueen() {
 
-        val queen1 = pieceFactoryImpl.getQueen()
-        val queen2 = pieceFactoryImpl.getQueen()
+        val queen1 = pieceFactoryImpl.makeNewQueen()
+        val queen2 = pieceFactoryImpl.makeNewQueen()
 
         assertNotSame(queen1, queen2)
     }
 
     @Test
-    fun getRook_shouldReturnRook() {
+    fun makeNewRook_shouldReturnRook() {
 
-        val rook = pieceFactoryImpl.getRook()
+        val rook: Piece = pieceFactoryImpl.makeNewRook()
 
         assertTrue(rook is Rook)
     }
 
     @Test
-    fun getRook_shouldReturnNewRook() {
+    fun makeNewRook_shouldReturnNewRook() {
 
-        val rook1 = pieceFactoryImpl.getRook()
-        val rook2 = pieceFactoryImpl.getRook()
+        val rook1 = pieceFactoryImpl.makeNewRook()
+        val rook2 = pieceFactoryImpl.makeNewRook()
 
         assertNotSame(rook1, rook2)
     }

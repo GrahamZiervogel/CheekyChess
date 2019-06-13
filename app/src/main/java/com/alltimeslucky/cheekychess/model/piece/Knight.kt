@@ -2,6 +2,6 @@ package com.alltimeslucky.cheekychess.model.piece
 
 class Knight : Piece() {
 
-    override var pointValue = 3
+    override val pointValue = 3
 
 }

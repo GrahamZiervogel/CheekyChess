@@ -2,11 +2,11 @@ package com.alltimeslucky.cheekychess.model.piece
 
 interface PieceFactory {
 
-    fun getBishop(): Bishop
-    fun getKing(): King
-    fun getKnight(): Knight
-    fun getPawn(): Pawn
-    fun getQueen(): Queen
-    fun getRook(): Rook
+    fun makeNewBishop(): Bishop
+    fun makeNewKing(): King
+    fun makeNewKnight(): Knight
+    fun makeNewPawn(): Pawn
+    fun makeNewQueen(): Queen
+    fun makeNewRook(): Rook
 
 }

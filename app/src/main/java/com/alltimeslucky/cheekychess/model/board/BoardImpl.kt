@@ -1,6 +1,8 @@
 package com.alltimeslucky.cheekychess.model.board
 
-import com.alltimeslucky.cheekychess.model.piece.*
+import com.alltimeslucky.cheekychess.model.piece.Pawn
+import com.alltimeslucky.cheekychess.model.piece.Piece
+import com.alltimeslucky.cheekychess.model.piece.PieceFactory
 
 class BoardImpl(private val pieceFactory: PieceFactory) : Board {
 
@@ -8,17 +10,21 @@ class BoardImpl(private val pieceFactory: PieceFactory) : Board {
         Array(WIDTH) { null }
     }
 
+    fun getGridElement(row: Int, column: Int): Piece? {
+        return pieceGrid[row][column]
+    }
+
     override fun initializeGrid() {
 
         var row = 0
-        pieceGrid[row][0] = pieceFactory.getRook()
-        pieceGrid[row][1] = pieceFactory.getKnight()
-        pieceGrid[row][2] = pieceFactory.getBishop()
-        pieceGrid[row][3] = pieceFactory.getQueen()
-        pieceGrid[row][4] = pieceFactory.getKing()
-        pieceGrid[row][5] = pieceFactory.getBishop()
-        pieceGrid[row][6] = pieceFactory.getKnight()
-        pieceGrid[row][7] = pieceFactory.getRook()
+        pieceGrid[row][0] = pieceFactory.makeNewRook()
+        pieceGrid[row][1] = pieceFactory.makeNewKnight()
+        pieceGrid[row][2] = pieceFactory.makeNewBishop()
+        pieceGrid[row][3] = pieceFactory.makeNewQueen()
+        pieceGrid[row][4] = pieceFactory.makeNewKing()
+        pieceGrid[row][5] = pieceFactory.makeNewBishop()
+        pieceGrid[row][6] = pieceFactory.makeNewKnight()
+        pieceGrid[row][7] = pieceFactory.makeNewRook()
 
         row = 1
         for (column in 0 until WIDTH) {
@@ -31,14 +37,14 @@ class BoardImpl(private val pieceFactory: PieceFactory) : Board {
         }
 
         row = 7
-        pieceGrid[row][0] = pieceFactory.getRook()
-        pieceGrid[row][1] = pieceFactory.getKnight()
-        pieceGrid[row][2] = pieceFactory.getBishop()
-        pieceGrid[row][3] = pieceFactory.getKing()
-        pieceGrid[row][4] = pieceFactory.getQueen()
-        pieceGrid[row][5] = pieceFactory.getBishop()
-        pieceGrid[row][6] = pieceFactory.getKnight()
-        pieceGrid[row][7] = pieceFactory.getRook()
+        pieceGrid[row][0] = pieceFactory.makeNewRook()
+        pieceGrid[row][1] = pieceFactory.makeNewKnight()
+        pieceGrid[row][2] = pieceFactory.makeNewBishop()
+        pieceGrid[row][3] = pieceFactory.makeNewKing()
+        pieceGrid[row][4] = pieceFactory.makeNewQueen()
+        pieceGrid[row][5] = pieceFactory.makeNewBishop()
+        pieceGrid[row][6] = pieceFactory.makeNewKnight()
+        pieceGrid[row][7] = pieceFactory.makeNewRook()
 
     }
 
@@ -49,10 +55,6 @@ class BoardImpl(private val pieceFactory: PieceFactory) : Board {
             }
             println()
         }
-    }
-
-    fun getGridElement(row: Int, column: Int): Piece? {
-        return pieceGrid[row][column]
     }
 
     companion object {

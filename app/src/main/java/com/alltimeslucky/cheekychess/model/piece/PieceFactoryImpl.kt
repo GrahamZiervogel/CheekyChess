@@ -2,27 +2,27 @@ package com.alltimeslucky.cheekychess.model.piece
 
 class PieceFactoryImpl : PieceFactory {
 
-    override fun getBishop(): Bishop {
+    override fun makeNewBishop(): Bishop {
         return Bishop()
     }
 
-    override fun getKing(): King {
+    override fun makeNewKing(): King {
         return King()
     }
 
-    override fun getKnight(): Knight {
+    override fun makeNewKnight(): Knight {
         return Knight()
     }
 
-    override fun getPawn(): Pawn {
+    override fun makeNewPawn(): Pawn {
         return Pawn()
     }
 
-    override fun getQueen(): Queen {
+    override fun makeNewQueen(): Queen {
         return Queen()
     }
 
-    override fun getRook(): Rook {
+    override fun makeNewRook(): Rook {
         return Rook()
     }
 

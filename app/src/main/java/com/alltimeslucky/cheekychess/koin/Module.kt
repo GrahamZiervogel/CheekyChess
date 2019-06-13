@@ -12,9 +12,9 @@ class Module {
 
         val appModule = module {
 
-            single<PieceFactory> { PieceFactoryImpl() }
-
             single<Board> { BoardImpl(get()) }
+
+            single<PieceFactory> { PieceFactoryImpl() }
 
         }
 
