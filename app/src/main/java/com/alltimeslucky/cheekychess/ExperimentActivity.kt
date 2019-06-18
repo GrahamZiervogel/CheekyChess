@@ -61,9 +61,9 @@ class ExperimentActivity : AppCompatActivity() {
                 bottom = top + squareWidth
 
                 colorString = if ((widthIter + heightIter) % 2 == 0) {
-                    "white"
+                    "#EEEE0000"
                 } else {
-                    "black"
+                    "#EE0000EE"
                 }
 
                 shapeDrawable.setBounds(left, top, right, bottom)
