@@ -9,7 +9,13 @@ package com.alltimeslucky.cheekychess
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.v7.app.AppCompatActivity
-import android.widget.ImageView
+import com.alltimeslucky.cheekychess.koin.Module
+import com.alltimeslucky.cheekychess.model.board.Board
+import com.alltimeslucky.cheekychess.view.board.BoardRenderer
+import org.koin.android.ext.android.inject
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
 
 class SpriteActivity : AppCompatActivity() {
 
@@ -17,14 +23,19 @@ class SpriteActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
+        startKoin {
+            androidLogger()
+            androidContext(this@SpriteActivity)
+            modules(Module.appModule)
+        }
+
         setContentView(R.layout.activity_sprite)
 
+        val board: Board by inject()
+        val boardRenderer: BoardRenderer by inject()
         val constraintLayout = findViewById<ConstraintLayout>(R.id.constraintLayout)
 
-        val imageView = ImageView(this)
+        boardRenderer.draw(board, constraintLayout)
 
-        imageView.setImageResource(R.drawable.test_png)
-
-        constraintLayout.addView(imageView)
     }
 }
