@@ -12,6 +12,8 @@ import com.alltimeslucky.cheekychess.model.piece.PieceFactory
 import com.alltimeslucky.cheekychess.model.piece.PieceFactoryImpl
 import com.alltimeslucky.cheekychess.view.board.BoardRenderer
 import com.alltimeslucky.cheekychess.view.board.BoardRendererImpl
+import com.alltimeslucky.cheekychess.view.piece.PieceRenderer
+import com.alltimeslucky.cheekychess.view.piece.PieceRendererImpl
 import org.koin.dsl.module
 
 class Module {
@@ -21,8 +23,9 @@ class Module {
         val appModule = module {
 
             single<Board> { BoardImpl(get()) }
-            single<BoardRenderer> { BoardRendererImpl(get()) }
+            single<BoardRenderer> { BoardRendererImpl(get(), get()) }
             single<PieceFactory> { PieceFactoryImpl() }
+            single<PieceRenderer> { PieceRendererImpl(get()) }
 
         }
 

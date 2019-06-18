@@ -35,6 +35,7 @@ class SpriteActivity : AppCompatActivity() {
         val boardRenderer: BoardRenderer by inject()
         val constraintLayout = findViewById<ConstraintLayout>(R.id.constraintLayout)
 
+        board.initializeGrid()
         boardRenderer.draw(board, constraintLayout)
 
     }

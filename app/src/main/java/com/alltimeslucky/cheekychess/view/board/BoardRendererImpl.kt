@@ -11,14 +11,17 @@ import android.support.constraint.ConstraintLayout
 import android.widget.ImageView
 import com.alltimeslucky.cheekychess.R
 import com.alltimeslucky.cheekychess.model.board.Board
+import com.alltimeslucky.cheekychess.view.piece.PieceRenderer
 
-class BoardRendererImpl(context: Context) : BoardRenderer {
+class BoardRendererImpl(context: Context, private val pieceRenderer: PieceRenderer) : BoardRenderer {
 
     private val imageView = ImageView(context)
 
     override fun draw(board: Board, constraintLayout: ConstraintLayout) {
-        imageView.setImageResource(R.drawable.test_png)
+        imageView.setImageResource(R.drawable.test_board)
         constraintLayout.addView(imageView)
+
+        pieceRenderer.draw(board.getGridElement(0, 0), constraintLayout)
     }
 
 }

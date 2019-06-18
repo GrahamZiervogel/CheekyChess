@@ -4,14 +4,13 @@
  *
  */
 
-package com.alltimeslucky.cheekychess.model.board
+package com.alltimeslucky.cheekychess.view.piece
 
+import android.support.constraint.ConstraintLayout
 import com.alltimeslucky.cheekychess.model.piece.Piece
 
-interface Board {
+interface PieceRenderer {
 
-    fun initializeGrid()
-    fun printGrid()
-    fun getGridElement(row: Int, column: Int): Piece?
+    fun draw(piece: Piece?, constraintLayout: ConstraintLayout)
 
 }

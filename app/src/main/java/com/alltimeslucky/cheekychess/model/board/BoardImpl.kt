@@ -16,7 +16,7 @@ class BoardImpl(private val pieceFactory: PieceFactory) : Board {
         Array(WIDTH) { null }
     }
 
-    fun getGridElement(row: Int, column: Int): Piece? {
+    override fun getGridElement(row: Int, column: Int): Piece? {
         return pieceGrid[row][column]
     }
 
