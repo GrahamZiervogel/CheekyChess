@@ -18,7 +18,7 @@ class BoardRendererImpl(context: Context, private val pieceRenderer: PieceRender
     private val imageView = ImageView(context)
 
     override fun draw(board: Board, constraintLayout: ConstraintLayout) {
-        imageView.setImageResource(R.drawable.test_board)
+        imageView.setImageResource(R.drawable.chessboard)
         constraintLayout.addView(imageView)
 
         pieceRenderer.draw(board.getGridElement(0, 0), constraintLayout)
