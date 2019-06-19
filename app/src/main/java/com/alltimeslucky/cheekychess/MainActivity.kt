@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         val board: Board by inject()
         val boardRenderer: BoardRenderer by inject()
-        val constraintLayout = findViewById<ConstraintLayout>(R.id.constraintLayout)
+        val constraintLayout = findViewById<ConstraintLayout>(R.id.mainLayout)
 
         board.initializeGrid()
         boardRenderer.draw(board, constraintLayout)

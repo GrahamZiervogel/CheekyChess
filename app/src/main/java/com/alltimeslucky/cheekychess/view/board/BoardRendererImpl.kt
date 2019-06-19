@@ -20,9 +20,15 @@ class BoardRendererImpl(context: Context, private val pieceRenderer: PieceRender
     override fun draw(board: Board, constraintLayout: ConstraintLayout) {
 
         imageView.setImageResource(R.drawable.chessboard)
+
         constraintLayout.addView(imageView)
 
-        pieceRenderer.draw(board.getGridElement(0, 0), constraintLayout)
+        for (rowIter in 0 until 8) {
+            for (colIter in 0 until 8) {
+                pieceRenderer.draw(board.getGridElement(rowIter, colIter), constraintLayout, rowIter, colIter)
+            }
+        }
+
     }
 
 }

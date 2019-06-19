@@ -10,16 +10,43 @@ import android.content.Context
 import android.support.constraint.ConstraintLayout
 import android.widget.ImageView
 import com.alltimeslucky.cheekychess.R
-import com.alltimeslucky.cheekychess.model.piece.Piece
+import com.alltimeslucky.cheekychess.model.piece.*
 
-class PieceRendererImpl(context: Context) : PieceRenderer {
+class PieceRendererImpl(private val context: Context) : PieceRenderer {
 
-    private var imageView = ImageView(context)
+    override fun draw(piece: Piece?, constraintLayout: ConstraintLayout, pieceRow: Int, pieceCol: Int) {
 
-    override fun draw(piece: Piece?, constraintLayout: ConstraintLayout) {
+        val imageView = ImageView(context)
 
-        imageView.setImageResource(R.drawable.pawn_gold)
-        constraintLayout.addView(imageView)
+        if (piece != null) {
+            if (pieceRow < 4) {
+                when (piece) {
+                    is Pawn -> imageView.setImageResource(R.drawable.pawn_gold)
+                    is Rook -> imageView.setImageResource(R.drawable.rook_gold)
+                    is Knight -> imageView.setImageResource(R.drawable.knight_gold)
+                    is Bishop -> imageView.setImageResource(R.drawable.bishop_gold)
+                    is Queen -> imageView.setImageResource(R.drawable.queen_gold)
+                    is King -> imageView.setImageResource(R.drawable.king_gold)
+                }
+            } else {
+                when (piece) {
+                    is Pawn -> imageView.setImageResource(R.drawable.pawn_green)
+                    is Rook -> imageView.setImageResource(R.drawable.rook_green)
+                    is Knight -> imageView.setImageResource(R.drawable.knight_green)
+                    is Bishop -> imageView.setImageResource(R.drawable.bishop_green)
+                    is Queen -> imageView.setImageResource(R.drawable.queen_green)
+                    is King -> imageView.setImageResource(R.drawable.king_green)
+                }
+            }
+
+            constraintLayout.addView(imageView)
+
+            imageView.layoutParams.height = 120
+            imageView.layoutParams.width = 120
+            imageView.x = 145F + 95 * pieceCol
+            imageView.y = 390F + 95 * pieceRow
+
+        }
 
     }
 
