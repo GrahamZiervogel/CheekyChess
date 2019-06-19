@@ -14,11 +14,13 @@ import com.alltimeslucky.cheekychess.model.piece.Piece
 
 class PieceRendererImpl(context: Context) : PieceRenderer {
 
-    private val imageView = ImageView(context)
+    private var imageView = ImageView(context)
 
     override fun draw(piece: Piece?, constraintLayout: ConstraintLayout) {
+
         imageView.setImageResource(R.drawable.pawn_gold)
         constraintLayout.addView(imageView)
+
     }
 
 }

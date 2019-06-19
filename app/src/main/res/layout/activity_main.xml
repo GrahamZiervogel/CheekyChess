@@ -11,5 +11,5 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.alltimeslucky.cheekychess.SpriteActivity">
+        tools:context="com.alltimeslucky.cheekychess.MainActivity">
 </android.support.constraint.ConstraintLayout>

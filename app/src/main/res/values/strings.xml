@@ -6,9 +6,4 @@
 
 <resources>
     <string name="app_name">Cheeky Chess</string>
-    <string name="experiment_board_description">Experiment board</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="cheeky_chess">CHEEKY\nCHESS</string>
-    <string name="title_activity_sprite">SpriteActivity</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

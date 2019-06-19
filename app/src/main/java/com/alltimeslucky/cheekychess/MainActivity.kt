@@ -17,7 +17,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 
-class SpriteActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -25,11 +25,11 @@ class SpriteActivity : AppCompatActivity() {
 
         startKoin {
             androidLogger()
-            androidContext(this@SpriteActivity)
+            androidContext(this@MainActivity)
             modules(Module.appModule)
         }
 
-        setContentView(R.layout.activity_sprite)
+        setContentView(R.layout.activity_main)
 
         val board: Board by inject()
         val boardRenderer: BoardRenderer by inject()
