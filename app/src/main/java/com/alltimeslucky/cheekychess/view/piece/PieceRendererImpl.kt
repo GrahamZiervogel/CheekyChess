@@ -12,9 +12,17 @@ import android.widget.ImageView
 import com.alltimeslucky.cheekychess.R
 import com.alltimeslucky.cheekychess.model.piece.*
 
+
 class PieceRendererImpl(private val context: Context) : PieceRenderer {
 
-    override fun draw(piece: Piece?, constraintLayout: ConstraintLayout, pieceRow: Int, pieceCol: Int) {
+    override fun draw(
+        piece: Piece?,
+        constraintLayout: ConstraintLayout,
+        pieceRow: Int,
+        pieceCol: Int,
+        layoutHeight: Int,
+        layoutWidth: Int
+    ) {
 
         val imageView = ImageView(context)
 
@@ -41,10 +49,13 @@ class PieceRendererImpl(private val context: Context) : PieceRenderer {
 
             constraintLayout.addView(imageView)
 
-            imageView.layoutParams.height = 120
-            imageView.layoutParams.width = 120
-            imageView.x = 145F + 95 * pieceCol
-            imageView.y = 390F + 95 * pieceRow
+            val squareWidth = (layoutWidth / 8F)
+            val topAndBottomExcess = (layoutHeight - layoutWidth) / 2
+
+            imageView.layoutParams.height = layoutWidth / 8
+            imageView.layoutParams.width = layoutWidth / 8
+            imageView.x = squareWidth * pieceCol
+            imageView.y = topAndBottomExcess + squareWidth * pieceRow
 
         }
 

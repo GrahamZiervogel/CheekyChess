@@ -12,5 +12,6 @@ import com.alltimeslucky.cheekychess.model.board.Board
 interface BoardRenderer {
 
     fun draw(board: Board, constraintLayout: ConstraintLayout)
+    fun setLayoutDimensions(layoutHeight: Int, layoutWidth: Int)
 
 }

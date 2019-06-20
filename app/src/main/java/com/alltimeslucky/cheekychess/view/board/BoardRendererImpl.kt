@@ -17,18 +17,33 @@ class BoardRendererImpl(context: Context, private val pieceRenderer: PieceRender
 
     private val imageView = ImageView(context)
 
+    private var layoutHeight: Int = 0
+    private var layoutWidth: Int = 0
+
     override fun draw(board: Board, constraintLayout: ConstraintLayout) {
 
-        imageView.setImageResource(R.drawable.chessboard)
+        imageView.setImageResource(R.drawable.board)
 
         constraintLayout.addView(imageView)
 
         for (rowIter in 0 until 8) {
             for (colIter in 0 until 8) {
-                pieceRenderer.draw(board.getGridElement(rowIter, colIter), constraintLayout, rowIter, colIter)
+                pieceRenderer.draw(
+                    board.getGridElement(rowIter, colIter),
+                    constraintLayout,
+                    rowIter,
+                    colIter,
+                    layoutHeight,
+                    layoutWidth
+                )
             }
         }
 
+    }
+
+    override fun setLayoutDimensions(layoutHeight: Int, layoutWidth: Int) {
+        this.layoutHeight = layoutHeight
+        this.layoutWidth = layoutWidth
     }
 
 }
