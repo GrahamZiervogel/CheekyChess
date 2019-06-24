@@ -17,12 +17,12 @@ import com.alltimeslucky.cheekychess.view.GridToPixelMapper
 class PieceRendererImpl(private val context: Context, private val gridToPixelMapper: GridToPixelMapper) :
     PieceRenderer {
 
-    override fun draw(piece: Piece?, constraintLayout: ConstraintLayout, pieceRow: Int, pieceCol: Int) {
+    override fun draw(constraintLayout: ConstraintLayout, gridCoordinates: Pair<Int, Int>, piece: Piece?) {
 
         val imageView = ImageView(context)
 
         if (piece != null) {
-            if (pieceRow < 4) {
+            if (gridCoordinates.first < 4) {
                 when (piece) {
                     is Pawn -> imageView.setImageResource(R.drawable.pawn_gold)
                     is Rook -> imageView.setImageResource(R.drawable.rook_gold)
@@ -44,13 +44,13 @@ class PieceRendererImpl(private val context: Context, private val gridToPixelMap
 
             constraintLayout.addView(imageView)
 
-            val boardSquareDimensions = gridToPixelMapper.getBoardSquareDimensions()
-            val startPixels = gridToPixelMapper.mapGridIndicesToStartPixels(pieceRow, pieceCol)
+            val boardSquareSideLength = gridToPixelMapper.getBoardSquareSideLength().toInt()
+            imageView.layoutParams.height = boardSquareSideLength
+            imageView.layoutParams.width = boardSquareSideLength
 
-            imageView.layoutParams.height = boardSquareDimensions.first.toInt()
-            imageView.layoutParams.width = boardSquareDimensions.second.toInt()
-            imageView.x = startPixels.first
-            imageView.y = startPixels.second
+            val pixelCoordinates = gridToPixelMapper.mapGridCoordinatesToPixelCoordinates(gridCoordinates)
+            imageView.x = pixelCoordinates.second
+            imageView.y = pixelCoordinates.first
 
         }
 

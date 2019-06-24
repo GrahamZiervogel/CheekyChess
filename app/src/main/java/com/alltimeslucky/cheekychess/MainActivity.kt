@@ -37,25 +37,29 @@ class MainActivity : AppCompatActivity() {
         val board: Board by inject()
         board.initializeGrid()
 
-        val gridToPixelMapper: GridToPixelMapper by inject()
         val boardRenderer: BoardRenderer by inject()
         val constraintLayout = findViewById<ConstraintLayout>(R.id.mainLayout)
+        val gridToPixelMapper: GridToPixelMapper by inject()
 
         val vto = constraintLayout.viewTreeObserver
 
-        vto.addOnGlobalLayoutListener(object : OnGlobalLayoutListener {
-            override fun onGlobalLayout() {
-                constraintLayout.viewTreeObserver.removeOnGlobalLayoutListener(this)
+        vto.addOnGlobalLayoutListener(
+            object : OnGlobalLayoutListener {
+                override fun onGlobalLayout() {
 
-                val layoutHeight: Int = constraintLayout.measuredHeight
-                val layoutWidth: Int = constraintLayout.measuredWidth
+                    constraintLayout.viewTreeObserver.removeOnGlobalLayoutListener(this)
 
-                gridToPixelMapper.layoutHeight = layoutHeight
-                gridToPixelMapper.layoutWidth = layoutWidth
+                    val layoutHeight: Int = constraintLayout.measuredHeight
+                    val layoutWidth: Int = constraintLayout.measuredWidth
 
-                boardRenderer.draw(board, constraintLayout)
+                    gridToPixelMapper.layoutHeight = layoutHeight
+                    gridToPixelMapper.layoutWidth = layoutWidth
+
+                    boardRenderer.draw(board, constraintLayout)
+
+                }
             }
-        })
+        )
 
     }
 

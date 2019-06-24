@@ -25,7 +25,12 @@ class BoardRendererImpl(context: Context, private val pieceRenderer: PieceRender
 
         for (rowIter in 0 until 8) {
             for (colIter in 0 until 8) {
-                pieceRenderer.draw(board.getGridElement(rowIter, colIter), constraintLayout, rowIter, colIter)
+
+                val gridCoordinates = Pair(rowIter, colIter)
+                val piece = board.getGridElement(gridCoordinates)
+
+                pieceRenderer.draw(constraintLayout, gridCoordinates, piece)
+
             }
         }
 

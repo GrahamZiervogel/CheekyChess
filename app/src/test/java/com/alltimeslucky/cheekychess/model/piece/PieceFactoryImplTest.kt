@@ -27,6 +27,7 @@ class PieceFactoryImplTest {
         val bishop: Piece = pieceFactoryImpl.makeNewBishop()
 
         assertTrue(bishop is Bishop)
+
     }
 
     @Test
@@ -36,6 +37,7 @@ class PieceFactoryImplTest {
         val bishop2 = pieceFactoryImpl.makeNewBishop()
 
         assertNotSame(bishop1, bishop2)
+
     }
 
     @Test
@@ -44,6 +46,7 @@ class PieceFactoryImplTest {
         val king: Piece = pieceFactoryImpl.makeNewKing()
 
         assertTrue(king is King)
+
     }
 
     @Test
@@ -53,6 +56,7 @@ class PieceFactoryImplTest {
         val king2 = pieceFactoryImpl.makeNewKing()
 
         assertNotSame(king1, king2)
+
     }
 
     @Test
@@ -61,6 +65,7 @@ class PieceFactoryImplTest {
         val knight: Piece = pieceFactoryImpl.makeNewKnight()
 
         assertTrue(knight is Knight)
+
     }
 
     @Test
@@ -70,6 +75,7 @@ class PieceFactoryImplTest {
         val knight2 = pieceFactoryImpl.makeNewKnight()
 
         assertNotSame(knight1, knight2)
+
     }
 
     @Test
@@ -78,6 +84,7 @@ class PieceFactoryImplTest {
         val pawn: Piece = pieceFactoryImpl.makeNewPawn()
 
         assertTrue(pawn is Pawn)
+
     }
 
     @Test
@@ -87,6 +94,7 @@ class PieceFactoryImplTest {
         val pawn2 = pieceFactoryImpl.makeNewPawn()
 
         assertNotSame(pawn1, pawn2)
+
     }
 
     @Test
@@ -95,6 +103,7 @@ class PieceFactoryImplTest {
         val queen: Piece = pieceFactoryImpl.makeNewQueen()
 
         assertTrue(queen is Queen)
+
     }
 
     @Test
@@ -104,6 +113,7 @@ class PieceFactoryImplTest {
         val queen2 = pieceFactoryImpl.makeNewQueen()
 
         assertNotSame(queen1, queen2)
+
     }
 
     @Test
@@ -112,6 +122,7 @@ class PieceFactoryImplTest {
         val rook: Piece = pieceFactoryImpl.makeNewRook()
 
         assertTrue(rook is Rook)
+
     }
 
     @Test
@@ -121,6 +132,7 @@ class PieceFactoryImplTest {
         val rook2 = pieceFactoryImpl.makeNewRook()
 
         assertNotSame(rook1, rook2)
+
     }
 
 }

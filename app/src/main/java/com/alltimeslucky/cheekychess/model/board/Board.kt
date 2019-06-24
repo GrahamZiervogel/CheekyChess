@@ -10,8 +10,7 @@ import com.alltimeslucky.cheekychess.model.piece.Piece
 
 interface Board {
 
+    fun getGridElement(gridCoordinates: Pair<Int, Int>): Piece?
     fun initializeGrid()
-    fun printGrid()
-    fun getGridElement(row: Int, column: Int): Piece?
 
 }

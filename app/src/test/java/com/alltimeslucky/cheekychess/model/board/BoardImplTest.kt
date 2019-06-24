@@ -27,7 +27,7 @@ class BoardImplTest {
 
         boardImpl.initializeGrid()
 
-        val piece: Piece? = boardImpl.getGridElement(0, 0)
+        val piece: Piece? = boardImpl.getGridElement(Pair(0, 0))
         assertTrue(piece is Rook)
 
     }
@@ -37,60 +37,61 @@ class BoardImplTest {
 
         boardImpl.initializeGrid()
 
-        var piece: Piece? = boardImpl.getGridElement(0, 0)
-        assertTrue(piece is Rook)
-
         var row = 0
-        piece = boardImpl.getGridElement(row, 1)
+        var piece: Piece?
+
+        piece = boardImpl.getGridElement(Pair(row, 0))
+        assertTrue(piece is Rook)
+        piece = boardImpl.getGridElement(Pair(row, 1))
         assertTrue(piece is Knight)
-        piece = boardImpl.getGridElement(row, 2)
+        piece = boardImpl.getGridElement(Pair(row, 2))
         assertTrue(piece is Bishop)
-        piece = boardImpl.getGridElement(row, 3)
+        piece = boardImpl.getGridElement(Pair(row, 3))
         assertTrue(piece is King)
-        piece = boardImpl.getGridElement(row, 4)
+        piece = boardImpl.getGridElement(Pair(row, 4))
         assertTrue(piece is Queen)
-        piece = boardImpl.getGridElement(row, 5)
+        piece = boardImpl.getGridElement(Pair(row, 5))
         assertTrue(piece is Bishop)
-        piece = boardImpl.getGridElement(row, 6)
+        piece = boardImpl.getGridElement(Pair(row, 6))
         assertTrue(piece is Knight)
-        piece = boardImpl.getGridElement(row, 7)
+        piece = boardImpl.getGridElement(Pair(row, 7))
         assertTrue(piece is Rook)
 
         row = 1
         for (column in 0 until BoardImpl.WIDTH) {
-            piece = boardImpl.getGridElement(row, column)
+            piece = boardImpl.getGridElement(Pair(row, column))
             assertTrue(piece is Pawn)
         }
 
         for (rowIter in 2 until 6) {
             for (column in 0 until BoardImpl.WIDTH) {
-                piece = boardImpl.getGridElement(rowIter, column)
+                piece = boardImpl.getGridElement(Pair(rowIter, column))
                 assertNull(piece)
             }
         }
 
         row = 6
         for (column in 0 until BoardImpl.WIDTH) {
-            piece = boardImpl.getGridElement(row, column)
+            piece = boardImpl.getGridElement(Pair(row, column))
             assertTrue(piece is Pawn)
         }
 
         row = 7
-        piece = boardImpl.getGridElement(row, 0)
+        piece = boardImpl.getGridElement(Pair(row, 0))
         assertTrue(piece is Rook)
-        piece = boardImpl.getGridElement(row, 1)
+        piece = boardImpl.getGridElement(Pair(row, 1))
         assertTrue(piece is Knight)
-        piece = boardImpl.getGridElement(row, 2)
+        piece = boardImpl.getGridElement(Pair(row, 2))
         assertTrue(piece is Bishop)
-        piece = boardImpl.getGridElement(row, 3)
+        piece = boardImpl.getGridElement(Pair(row, 3))
         assertTrue(piece is King)
-        piece = boardImpl.getGridElement(row, 4)
+        piece = boardImpl.getGridElement(Pair(row, 4))
         assertTrue(piece is Queen)
-        piece = boardImpl.getGridElement(row, 5)
+        piece = boardImpl.getGridElement(Pair(row, 5))
         assertTrue(piece is Bishop)
-        piece = boardImpl.getGridElement(row, 6)
+        piece = boardImpl.getGridElement(Pair(row, 6))
         assertTrue(piece is Knight)
-        piece = boardImpl.getGridElement(row, 7)
+        piece = boardImpl.getGridElement(Pair(row, 7))
         assertTrue(piece is Rook)
 
     }

@@ -16,8 +16,8 @@ class BoardImpl(private val pieceFactory: PieceFactory) : Board {
         Array(WIDTH) { null }
     }
 
-    override fun getGridElement(row: Int, column: Int): Piece? {
-        return pieceGrid[row][column]
+    override fun getGridElement(gridCoordinates: Pair<Int, Int>): Piece? {
+        return pieceGrid[gridCoordinates.first][gridCoordinates.second]
     }
 
     override fun initializeGrid() {
@@ -52,15 +52,6 @@ class BoardImpl(private val pieceFactory: PieceFactory) : Board {
         pieceGrid[row][6] = pieceFactory.makeNewKnight()
         pieceGrid[row][7] = pieceFactory.makeNewRook()
 
-    }
-
-    override fun printGrid() {
-        for (height in 0 until HEIGHT) {
-            for (width in 0 until WIDTH) {
-                print(pieceGrid[height][width])
-            }
-            println()
-        }
     }
 
     companion object {

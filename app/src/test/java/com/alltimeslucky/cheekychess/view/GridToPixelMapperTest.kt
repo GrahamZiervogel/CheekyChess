@@ -21,38 +21,46 @@ class GridToPixelMapperTest {
     }
 
     @Test
-    fun mapGridIndicesToStartPixels_shouldMapGridIndicesToZeroWhenNotInitialized() {
+    fun getBoardSquareSideLength_shouldReturnZeroWhenNotInitialized() {
 
-        val (pixelX, pixelY) = gridToPixelMapper.mapGridIndicesToStartPixels(0, 0)
+        val boardSquareSideLength = gridToPixelMapper.getBoardSquareSideLength()
 
-        assertEquals(pixelX, 0F)
-        assertEquals(pixelY, 0F)
-
-    }
-
-    @Test
-    fun mapGridIndicesToStartPixels_shouldMapGridIndicesToStartPixels() {
-
-        gridToPixelMapper.layoutHeight = 1584
-        gridToPixelMapper.layoutWidth = 1080
-
-        val (pixelX, pixelY) = gridToPixelMapper.mapGridIndicesToStartPixels(4, 5)
-
-        assertEquals(675F, pixelX)
-        assertEquals(792F, pixelY)
+        assertEquals(0F, boardSquareSideLength)
 
     }
 
     @Test
-    fun getBoardSquareDimensions_shouldReturnBoardSquareDimensions() {
+    fun getBoardSquareSideLength_shouldReturnBoardSquareSideLength() {
 
         gridToPixelMapper.layoutHeight = 1584
         gridToPixelMapper.layoutWidth = 1080
 
-        val (squareHeight, squareWidth) = gridToPixelMapper.getBoardSquareDimensions()
+        val boardSquareSideLength = gridToPixelMapper.getBoardSquareSideLength()
 
-        assertEquals(135F, squareHeight)
-        assertEquals(135F, squareWidth)
+        assertEquals(135F, boardSquareSideLength)
+
+    }
+
+    @Test
+    fun mapGridCoordinatesToPixelCoordinates_shouldMapGridCoordinatesToZeroWhenNotInitialized() {
+
+        val pixelCoordinates = gridToPixelMapper.mapGridCoordinatesToPixelCoordinates(Pair(4, 5))
+
+        assertEquals(0F, pixelCoordinates.first)
+        assertEquals(0F, pixelCoordinates.second)
+
+    }
+
+    @Test
+    fun mapGridCoordinatesToPixelCoordinates_shouldMapGridCoordinatesToPixelCoordinates() {
+
+        gridToPixelMapper.layoutHeight = 1584
+        gridToPixelMapper.layoutWidth = 1080
+
+        val pixelCoordinates = gridToPixelMapper.mapGridCoordinatesToPixelCoordinates(Pair(4, 5))
+
+        assertEquals(792F, pixelCoordinates.first)
+        assertEquals(675F, pixelCoordinates.second)
 
     }
 

@@ -8,31 +8,29 @@ package com.alltimeslucky.cheekychess.view
 
 class GridToPixelMapper {
 
-    private var squareHeight: Float = 0F
-    private var squareWidth: Float = 0F
+    private var boardSquareSideLength: Float = 0F
 
     var layoutHeight: Int = 0
     var layoutWidth: Int = 0
         set(value) {
             field = value
-            squareHeight = value / 8F
-            squareWidth = value / 8F
+            boardSquareSideLength = value / 8F
         }
 
-    fun mapGridIndicesToStartPixels(pieceRow: Int, pieceCol: Int): Pair<Float, Float> {
+    fun getBoardSquareSideLength(): Float {
 
-        val topAndBottomExcess = (layoutHeight - layoutWidth) / 2F
-
-        val x = squareWidth * pieceCol
-        val y = topAndBottomExcess + squareWidth * pieceRow
-
-        return Pair(x, y)
+        return boardSquareSideLength
 
     }
 
-    fun getBoardSquareDimensions(): Pair<Float, Float> {
+    fun mapGridCoordinatesToPixelCoordinates(gridCoordinates: Pair<Int, Int>): Pair<Float, Float> {
 
-        return Pair(squareHeight, squareWidth)
+        val topAndBottomExcess = (layoutHeight - layoutWidth) / 2F
+
+        val startPixelRow = topAndBottomExcess + boardSquareSideLength * gridCoordinates.first
+        val startPixelCol = boardSquareSideLength * gridCoordinates.second
+
+        return Pair(startPixelRow, startPixelCol)
 
     }
 
