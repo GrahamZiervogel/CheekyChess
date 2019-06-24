@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import com.alltimeslucky.cheekychess.koin.Module
 import com.alltimeslucky.cheekychess.model.board.Board
+import com.alltimeslucky.cheekychess.view.GridToPixelMapper
 import com.alltimeslucky.cheekychess.view.board.BoardRenderer
 import org.koin.android.ext.android.inject
 import org.koin.android.ext.koin.androidContext
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         val board: Board by inject()
         board.initializeGrid()
 
+        val gridToPixelMapper: GridToPixelMapper by inject()
         val boardRenderer: BoardRenderer by inject()
         val constraintLayout = findViewById<ConstraintLayout>(R.id.mainLayout)
 
@@ -48,7 +50,9 @@ class MainActivity : AppCompatActivity() {
                 val layoutHeight: Int = constraintLayout.measuredHeight
                 val layoutWidth: Int = constraintLayout.measuredWidth
 
-                boardRenderer.setLayoutDimensions(layoutHeight, layoutWidth)
+                gridToPixelMapper.layoutHeight = layoutHeight
+                gridToPixelMapper.layoutWidth = layoutWidth
+
                 boardRenderer.draw(board, constraintLayout)
             }
         })

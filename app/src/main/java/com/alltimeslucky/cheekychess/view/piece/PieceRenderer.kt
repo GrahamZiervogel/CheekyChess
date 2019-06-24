@@ -11,13 +11,6 @@ import com.alltimeslucky.cheekychess.model.piece.Piece
 
 interface PieceRenderer {
 
-    fun draw(
-        piece: Piece?,
-        constraintLayout: ConstraintLayout,
-        pieceRow: Int,
-        pieceCol: Int,
-        layoutHeight: Int,
-        layoutWidth: Int
-    )
+    fun draw(piece: Piece?, constraintLayout: ConstraintLayout, pieceRow: Int, pieceCol: Int)
 
 }

@@ -11,18 +11,13 @@ import android.support.constraint.ConstraintLayout
 import android.widget.ImageView
 import com.alltimeslucky.cheekychess.R
 import com.alltimeslucky.cheekychess.model.piece.*
+import com.alltimeslucky.cheekychess.view.GridToPixelMapper
 
 
-class PieceRendererImpl(private val context: Context) : PieceRenderer {
+class PieceRendererImpl(private val context: Context, private val gridToPixelMapper: GridToPixelMapper) :
+    PieceRenderer {
 
-    override fun draw(
-        piece: Piece?,
-        constraintLayout: ConstraintLayout,
-        pieceRow: Int,
-        pieceCol: Int,
-        layoutHeight: Int,
-        layoutWidth: Int
-    ) {
+    override fun draw(piece: Piece?, constraintLayout: ConstraintLayout, pieceRow: Int, pieceCol: Int) {
 
         val imageView = ImageView(context)
 
@@ -49,13 +44,13 @@ class PieceRendererImpl(private val context: Context) : PieceRenderer {
 
             constraintLayout.addView(imageView)
 
-            val squareWidth = (layoutWidth / 8F)
-            val topAndBottomExcess = (layoutHeight - layoutWidth) / 2
+            val boardSquareDimensions = gridToPixelMapper.getBoardSquareDimensions()
+            val startPixels = gridToPixelMapper.mapGridIndicesToStartPixels(pieceRow, pieceCol)
 
-            imageView.layoutParams.height = layoutWidth / 8
-            imageView.layoutParams.width = layoutWidth / 8
-            imageView.x = squareWidth * pieceCol
-            imageView.y = topAndBottomExcess + squareWidth * pieceRow
+            imageView.layoutParams.height = boardSquareDimensions.first.toInt()
+            imageView.layoutParams.width = boardSquareDimensions.second.toInt()
+            imageView.x = startPixels.first
+            imageView.y = startPixels.second
 
         }
 
