@@ -6,7 +6,7 @@
 
 package com.alltimeslucky.cheekychess.model.piece
 
-class Rook : Piece() {
+class Rook(override val colour: COLOUR) : Piece() {
 
     override val pointValue = 5
 

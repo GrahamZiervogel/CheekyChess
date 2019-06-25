@@ -9,5 +9,10 @@ package com.alltimeslucky.cheekychess.model.piece
 abstract class Piece {
 
     protected abstract val pointValue: Int
+    protected abstract val colour: COLOUR
+
+    fun getPieceColour(): COLOUR {
+        return colour
+    }
 
 }

@@ -6,7 +6,7 @@
 
 package com.alltimeslucky.cheekychess.model.piece
 
-class Pawn : Piece() {
+class Pawn(override val colour: COLOUR) : Piece() {
 
     override val pointValue = 1
 

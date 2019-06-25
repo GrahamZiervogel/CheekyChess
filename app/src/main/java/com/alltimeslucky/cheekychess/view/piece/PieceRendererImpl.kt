@@ -22,7 +22,7 @@ class PieceRendererImpl(private val context: Context, private val gridToPixelMap
         val imageView = ImageView(context)
 
         if (piece != null) {
-            if (gridCoordinates.first < 4) {
+            if (piece.getPieceColour() == COLOUR.BLACK) {
                 when (piece) {
                     is Pawn -> imageView.setImageResource(R.drawable.pawn_gold)
                     is Rook -> imageView.setImageResource(R.drawable.rook_gold)
@@ -31,7 +31,7 @@ class PieceRendererImpl(private val context: Context, private val gridToPixelMap
                     is Queen -> imageView.setImageResource(R.drawable.queen_gold)
                     is King -> imageView.setImageResource(R.drawable.king_gold)
                 }
-            } else {
+            } else if (piece.getPieceColour() == COLOUR.WHITE) {
                 when (piece) {
                     is Pawn -> imageView.setImageResource(R.drawable.pawn_green)
                     is Rook -> imageView.setImageResource(R.drawable.rook_green)

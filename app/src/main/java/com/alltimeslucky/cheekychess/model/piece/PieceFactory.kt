@@ -8,11 +8,18 @@ package com.alltimeslucky.cheekychess.model.piece
 
 interface PieceFactory {
 
-    fun makeNewBishop(): Bishop
-    fun makeNewKing(): King
-    fun makeNewKnight(): Knight
-    fun makeNewPawn(): Pawn
-    fun makeNewQueen(): Queen
-    fun makeNewRook(): Rook
+    fun makeNewWhiteBishop(): Bishop
+    fun makeNewWhiteKing(): King
+    fun makeNewWhiteKnight(): Knight
+    fun makeNewWhitePawn(): Pawn
+    fun makeNewWhiteQueen(): Queen
+    fun makeNewWhiteRook(): Rook
+
+    fun makeNewBlackBishop(): Bishop
+    fun makeNewBlackKing(): King
+    fun makeNewBlackKnight(): Knight
+    fun makeNewBlackPawn(): Pawn
+    fun makeNewBlackQueen(): Queen
+    fun makeNewBlackRook(): Rook
 
 }

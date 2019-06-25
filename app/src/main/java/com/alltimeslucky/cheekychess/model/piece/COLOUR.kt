@@ -6,8 +6,6 @@
 
 package com.alltimeslucky.cheekychess.model.piece
 
-class Bishop(override val colour: COLOUR) : Piece() {
-
-    override val pointValue = 3
-
+enum class COLOUR {
+    WHITE, BLACK
 }

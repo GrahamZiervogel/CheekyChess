@@ -6,7 +6,6 @@
 
 package com.alltimeslucky.cheekychess.model.board
 
-import com.alltimeslucky.cheekychess.model.piece.Pawn
 import com.alltimeslucky.cheekychess.model.piece.Piece
 import com.alltimeslucky.cheekychess.model.piece.PieceFactory
 
@@ -23,34 +22,34 @@ class BoardImpl(private val pieceFactory: PieceFactory) : Board {
     override fun initializeGrid() {
 
         var row = 0
-        pieceGrid[row][0] = pieceFactory.makeNewRook()
-        pieceGrid[row][1] = pieceFactory.makeNewKnight()
-        pieceGrid[row][2] = pieceFactory.makeNewBishop()
-        pieceGrid[row][3] = pieceFactory.makeNewKing()
-        pieceGrid[row][4] = pieceFactory.makeNewQueen()
-        pieceGrid[row][5] = pieceFactory.makeNewBishop()
-        pieceGrid[row][6] = pieceFactory.makeNewKnight()
-        pieceGrid[row][7] = pieceFactory.makeNewRook()
+        pieceGrid[row][0] = pieceFactory.makeNewBlackRook()
+        pieceGrid[row][1] = pieceFactory.makeNewBlackKnight()
+        pieceGrid[row][2] = pieceFactory.makeNewBlackBishop()
+        pieceGrid[row][3] = pieceFactory.makeNewBlackQueen()
+        pieceGrid[row][4] = pieceFactory.makeNewBlackKing()
+        pieceGrid[row][5] = pieceFactory.makeNewBlackBishop()
+        pieceGrid[row][6] = pieceFactory.makeNewBlackKnight()
+        pieceGrid[row][7] = pieceFactory.makeNewBlackRook()
 
         row = 1
         for (column in 0 until WIDTH) {
-            pieceGrid[row][column] = Pawn()
+            pieceGrid[row][column] = pieceFactory.makeNewBlackPawn()
         }
 
         row = 6
         for (column in 0 until WIDTH) {
-            pieceGrid[row][column] = Pawn()
+            pieceGrid[row][column] = pieceFactory.makeNewWhitePawn()
         }
 
         row = 7
-        pieceGrid[row][0] = pieceFactory.makeNewRook()
-        pieceGrid[row][1] = pieceFactory.makeNewKnight()
-        pieceGrid[row][2] = pieceFactory.makeNewBishop()
-        pieceGrid[row][3] = pieceFactory.makeNewKing()
-        pieceGrid[row][4] = pieceFactory.makeNewQueen()
-        pieceGrid[row][5] = pieceFactory.makeNewBishop()
-        pieceGrid[row][6] = pieceFactory.makeNewKnight()
-        pieceGrid[row][7] = pieceFactory.makeNewRook()
+        pieceGrid[row][0] = pieceFactory.makeNewWhiteRook()
+        pieceGrid[row][1] = pieceFactory.makeNewWhiteKnight()
+        pieceGrid[row][2] = pieceFactory.makeNewWhiteBishop()
+        pieceGrid[row][3] = pieceFactory.makeNewWhiteQueen()
+        pieceGrid[row][4] = pieceFactory.makeNewWhiteKing()
+        pieceGrid[row][5] = pieceFactory.makeNewWhiteBishop()
+        pieceGrid[row][6] = pieceFactory.makeNewWhiteKnight()
+        pieceGrid[row][7] = pieceFactory.makeNewWhiteRook()
 
     }
 
