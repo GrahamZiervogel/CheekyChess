@@ -13,4 +13,6 @@ interface Board {
     fun getGridElement(gridCoordinates: Pair<Int, Int>): Piece?
     fun initializeGrid()
 
+    var selectedLocation: Pair<Int, Int>?
+
 }

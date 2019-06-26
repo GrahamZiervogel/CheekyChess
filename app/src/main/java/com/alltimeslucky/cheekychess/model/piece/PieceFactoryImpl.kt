@@ -9,51 +9,51 @@ package com.alltimeslucky.cheekychess.model.piece
 class PieceFactoryImpl : PieceFactory {
 
     override fun makeNewWhiteBishop(): Bishop {
-        return Bishop(COLOUR.WHITE)
+        return Bishop(Colour.WHITE)
     }
 
     override fun makeNewWhiteKing(): King {
-        return King(COLOUR.WHITE)
+        return King(Colour.WHITE)
     }
 
     override fun makeNewWhiteKnight(): Knight {
-        return Knight(COLOUR.WHITE)
+        return Knight(Colour.WHITE)
     }
 
     override fun makeNewWhitePawn(): Pawn {
-        return Pawn(COLOUR.WHITE)
+        return Pawn(Colour.WHITE)
     }
 
     override fun makeNewWhiteQueen(): Queen {
-        return Queen(COLOUR.WHITE)
+        return Queen(Colour.WHITE)
     }
 
     override fun makeNewWhiteRook(): Rook {
-        return Rook(COLOUR.WHITE)
+        return Rook(Colour.WHITE)
     }
 
     override fun makeNewBlackBishop(): Bishop {
-        return Bishop(COLOUR.BLACK)
+        return Bishop(Colour.BLACK)
     }
 
     override fun makeNewBlackKing(): King {
-        return King(COLOUR.BLACK)
+        return King(Colour.BLACK)
     }
 
     override fun makeNewBlackKnight(): Knight {
-        return Knight(COLOUR.BLACK)
+        return Knight(Colour.BLACK)
     }
 
     override fun makeNewBlackPawn(): Pawn {
-        return Pawn(COLOUR.BLACK)
+        return Pawn(Colour.BLACK)
     }
 
     override fun makeNewBlackQueen(): Queen {
-        return Queen(COLOUR.BLACK)
+        return Queen(Colour.BLACK)
     }
 
     override fun makeNewBlackRook(): Rook {
-        return Rook(COLOUR.BLACK)
+        return Rook(Colour.BLACK)
     }
 
 }

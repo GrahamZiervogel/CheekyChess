@@ -6,7 +6,7 @@
 
 package com.alltimeslucky.cheekychess.view
 
-class GridToPixelMapper {
+class CoordinateMapper {
 
     private var boardSquareSideLength: Float = 0F
 
@@ -31,6 +31,13 @@ class GridToPixelMapper {
         val startPixelCol = boardSquareSideLength * gridCoordinates.second
 
         return Pair(startPixelRow, startPixelCol)
+
+    }
+
+    fun mapPixelCoordinatesToGridCoordinates(pixelCoordinates: Pair<Float, Float>): Pair<Int, Int> {
+
+        // TODO: HOLLLLLLAAAAAAAAAAAAAA
+        return Pair(0, 0)
 
     }
 

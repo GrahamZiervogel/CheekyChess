@@ -48,42 +48,42 @@ class BoardImplTest {
 
         piece = boardImpl.getGridElement(Pair(row, 0))
         assertTrue(piece is Rook)
-        assertEquals(COLOUR.BLACK, piece?.getPieceColour())
+        assertEquals(Colour.BLACK, piece?.colour)
 
         piece = boardImpl.getGridElement(Pair(row, 1))
         assertTrue(piece is Knight)
-        assertEquals(COLOUR.BLACK, piece?.getPieceColour())
+        assertEquals(Colour.BLACK, piece?.colour)
 
         piece = boardImpl.getGridElement(Pair(row, 2))
         assertTrue(piece is Bishop)
-        assertEquals(COLOUR.BLACK, piece?.getPieceColour())
+        assertEquals(Colour.BLACK, piece?.colour)
 
         piece = boardImpl.getGridElement(Pair(row, 3))
         assertTrue(piece is Queen)
-        assertEquals(COLOUR.BLACK, piece?.getPieceColour())
+        assertEquals(Colour.BLACK, piece?.colour)
 
         piece = boardImpl.getGridElement(Pair(row, 4))
         assertTrue(piece is King)
-        assertEquals(COLOUR.BLACK, piece?.getPieceColour())
+        assertEquals(Colour.BLACK, piece?.colour)
 
         piece = boardImpl.getGridElement(Pair(row, 5))
         assertTrue(piece is Bishop)
-        assertEquals(COLOUR.BLACK, piece?.getPieceColour())
+        assertEquals(Colour.BLACK, piece?.colour)
 
         piece = boardImpl.getGridElement(Pair(row, 6))
         assertTrue(piece is Knight)
-        assertEquals(COLOUR.BLACK, piece?.getPieceColour())
+        assertEquals(Colour.BLACK, piece?.colour)
 
         piece = boardImpl.getGridElement(Pair(row, 7))
         assertTrue(piece is Rook)
-        assertEquals(COLOUR.BLACK, piece?.getPieceColour())
+        assertEquals(Colour.BLACK, piece?.colour)
 
         row = 1
 
         for (column in 0 until BoardImpl.WIDTH) {
             piece = boardImpl.getGridElement(Pair(row, column))
             assertTrue(piece is Pawn)
-            assertEquals(COLOUR.BLACK, piece?.getPieceColour())
+            assertEquals(Colour.BLACK, piece?.colour)
         }
 
         for (rowIter in 2 until 6) {
@@ -98,42 +98,42 @@ class BoardImplTest {
         for (column in 0 until BoardImpl.WIDTH) {
             piece = boardImpl.getGridElement(Pair(row, column))
             assertTrue(piece is Pawn)
-            assertEquals(COLOUR.WHITE, piece?.getPieceColour())
+            assertEquals(Colour.WHITE, piece?.colour)
         }
 
         row = 7
 
         piece = boardImpl.getGridElement(Pair(row, 0))
         assertTrue(piece is Rook)
-        assertEquals(COLOUR.WHITE, piece?.getPieceColour())
+        assertEquals(Colour.WHITE, piece?.colour)
 
         piece = boardImpl.getGridElement(Pair(row, 1))
         assertTrue(piece is Knight)
-        assertEquals(COLOUR.WHITE, piece?.getPieceColour())
+        assertEquals(Colour.WHITE, piece?.colour)
 
         piece = boardImpl.getGridElement(Pair(row, 2))
         assertTrue(piece is Bishop)
-        assertEquals(COLOUR.WHITE, piece?.getPieceColour())
+        assertEquals(Colour.WHITE, piece?.colour)
 
         piece = boardImpl.getGridElement(Pair(row, 3))
         assertTrue(piece is Queen)
-        assertEquals(COLOUR.WHITE, piece?.getPieceColour())
+        assertEquals(Colour.WHITE, piece?.colour)
 
         piece = boardImpl.getGridElement(Pair(row, 4))
         assertTrue(piece is King)
-        assertEquals(COLOUR.WHITE, piece?.getPieceColour())
+        assertEquals(Colour.WHITE, piece?.colour)
 
         piece = boardImpl.getGridElement(Pair(row, 5))
         assertTrue(piece is Bishop)
-        assertEquals(COLOUR.WHITE, piece?.getPieceColour())
+        assertEquals(Colour.WHITE, piece?.colour)
 
         piece = boardImpl.getGridElement(Pair(row, 6))
         assertTrue(piece is Knight)
-        assertEquals(COLOUR.WHITE, piece?.getPieceColour())
+        assertEquals(Colour.WHITE, piece?.colour)
 
         piece = boardImpl.getGridElement(Pair(row, 7))
         assertTrue(piece is Rook)
-        assertEquals(COLOUR.WHITE, piece?.getPieceColour())
+        assertEquals(Colour.WHITE, piece?.colour)
 
     }
 }

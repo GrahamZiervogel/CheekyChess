@@ -6,7 +6,7 @@
 
 package com.alltimeslucky.cheekychess.model.piece
 
-class Bishop(override val colour: COLOUR) : Piece() {
+class Bishop(override val colour: Colour) : Piece() {
 
     override val pointValue = 3
 

@@ -11,10 +11,10 @@ import android.support.constraint.ConstraintLayout
 import android.widget.ImageView
 import com.alltimeslucky.cheekychess.R
 import com.alltimeslucky.cheekychess.model.piece.*
-import com.alltimeslucky.cheekychess.view.GridToPixelMapper
+import com.alltimeslucky.cheekychess.view.CoordinateMapper
 
 
-class PieceRendererImpl(private val context: Context, private val gridToPixelMapper: GridToPixelMapper) :
+class PieceRendererImpl(private val context: Context, private val coordinateMapper: CoordinateMapper) :
     PieceRenderer {
 
     override fun draw(constraintLayout: ConstraintLayout, gridCoordinates: Pair<Int, Int>, piece: Piece?) {
@@ -22,7 +22,7 @@ class PieceRendererImpl(private val context: Context, private val gridToPixelMap
         val imageView = ImageView(context)
 
         if (piece != null) {
-            if (piece.getPieceColour() == COLOUR.BLACK) {
+            if (piece.colour == Colour.BLACK) {
                 when (piece) {
                     is Pawn -> imageView.setImageResource(R.drawable.pawn_gold)
                     is Rook -> imageView.setImageResource(R.drawable.rook_gold)
@@ -31,7 +31,7 @@ class PieceRendererImpl(private val context: Context, private val gridToPixelMap
                     is Queen -> imageView.setImageResource(R.drawable.queen_gold)
                     is King -> imageView.setImageResource(R.drawable.king_gold)
                 }
-            } else if (piece.getPieceColour() == COLOUR.WHITE) {
+            } else if (piece.colour == Colour.WHITE) {
                 when (piece) {
                     is Pawn -> imageView.setImageResource(R.drawable.pawn_green)
                     is Rook -> imageView.setImageResource(R.drawable.rook_green)
@@ -44,11 +44,11 @@ class PieceRendererImpl(private val context: Context, private val gridToPixelMap
 
             constraintLayout.addView(imageView)
 
-            val boardSquareSideLength = gridToPixelMapper.getBoardSquareSideLength().toInt()
+            val boardSquareSideLength = coordinateMapper.getBoardSquareSideLength().toInt()
             imageView.layoutParams.height = boardSquareSideLength
             imageView.layoutParams.width = boardSquareSideLength
 
-            val pixelCoordinates = gridToPixelMapper.mapGridCoordinatesToPixelCoordinates(gridCoordinates)
+            val pixelCoordinates = coordinateMapper.mapGridCoordinatesToPixelCoordinates(gridCoordinates)
             imageView.x = pixelCoordinates.second
             imageView.y = pixelCoordinates.first
 

@@ -10,7 +10,7 @@ import com.alltimeslucky.cheekychess.model.board.Board
 import com.alltimeslucky.cheekychess.model.board.BoardImpl
 import com.alltimeslucky.cheekychess.model.piece.PieceFactory
 import com.alltimeslucky.cheekychess.model.piece.PieceFactoryImpl
-import com.alltimeslucky.cheekychess.view.GridToPixelMapper
+import com.alltimeslucky.cheekychess.view.CoordinateMapper
 import com.alltimeslucky.cheekychess.view.board.BoardRenderer
 import com.alltimeslucky.cheekychess.view.board.BoardRendererImpl
 import com.alltimeslucky.cheekychess.view.piece.PieceRenderer
@@ -25,7 +25,7 @@ class Module {
 
             single<Board> { BoardImpl(get()) }
             single<BoardRenderer> { BoardRendererImpl(get(), get()) }
-            single { GridToPixelMapper() }
+            single { CoordinateMapper() }
             single<PieceFactory> { PieceFactoryImpl() }
             single<PieceRenderer> { PieceRendererImpl(get(), get()) }
 

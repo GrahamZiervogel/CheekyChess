@@ -6,6 +6,6 @@
 
 package com.alltimeslucky.cheekychess.model.piece
 
-enum class COLOUR {
+enum class Colour {
     WHITE, BLACK
 }

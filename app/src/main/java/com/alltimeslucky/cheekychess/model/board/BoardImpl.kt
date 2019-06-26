@@ -15,6 +15,8 @@ class BoardImpl(private val pieceFactory: PieceFactory) : Board {
         Array(WIDTH) { null }
     }
 
+    override var selectedLocation: Pair<Int, Int>? = null
+
     override fun getGridElement(gridCoordinates: Pair<Int, Int>): Piece? {
         return pieceGrid[gridCoordinates.first][gridCoordinates.second]
     }

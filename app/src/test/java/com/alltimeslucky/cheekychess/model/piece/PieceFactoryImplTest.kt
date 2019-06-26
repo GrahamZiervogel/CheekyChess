@@ -26,7 +26,7 @@ class PieceFactoryImplTest {
         val bishop: Piece = pieceFactoryImpl.makeNewWhiteBishop()
 
         assertTrue(bishop is Bishop)
-        assertEquals(COLOUR.WHITE, bishop.getPieceColour())
+        assertEquals(Colour.WHITE, bishop.colour)
 
     }
 
@@ -46,7 +46,7 @@ class PieceFactoryImplTest {
         val king: Piece = pieceFactoryImpl.makeNewWhiteKing()
 
         assertTrue(king is King)
-        assertEquals(COLOUR.WHITE, king.getPieceColour())
+        assertEquals(Colour.WHITE, king.colour)
 
     }
 
@@ -66,7 +66,7 @@ class PieceFactoryImplTest {
         val knight: Piece = pieceFactoryImpl.makeNewWhiteKnight()
 
         assertTrue(knight is Knight)
-        assertEquals(COLOUR.WHITE, knight.getPieceColour())
+        assertEquals(Colour.WHITE, knight.colour)
 
     }
 
@@ -86,7 +86,7 @@ class PieceFactoryImplTest {
         val pawn: Piece = pieceFactoryImpl.makeNewWhitePawn()
 
         assertTrue(pawn is Pawn)
-        assertEquals(COLOUR.WHITE, pawn.getPieceColour())
+        assertEquals(Colour.WHITE, pawn.colour)
 
 
     }
@@ -107,7 +107,7 @@ class PieceFactoryImplTest {
         val queen: Piece = pieceFactoryImpl.makeNewWhiteQueen()
 
         assertTrue(queen is Queen)
-        assertEquals(COLOUR.WHITE, queen.getPieceColour())
+        assertEquals(Colour.WHITE, queen.colour)
 
     }
 
@@ -127,7 +127,7 @@ class PieceFactoryImplTest {
         val rook: Piece = pieceFactoryImpl.makeNewWhiteRook()
 
         assertTrue(rook is Rook)
-        assertEquals(COLOUR.WHITE, rook.getPieceColour())
+        assertEquals(Colour.WHITE, rook.colour)
 
     }
 
@@ -147,7 +147,7 @@ class PieceFactoryImplTest {
         val bishop: Piece = pieceFactoryImpl.makeNewBlackBishop()
 
         assertTrue(bishop is Bishop)
-        assertEquals(COLOUR.BLACK, bishop.getPieceColour())
+        assertEquals(Colour.BLACK, bishop.colour)
 
     }
 
@@ -167,7 +167,7 @@ class PieceFactoryImplTest {
         val king: Piece = pieceFactoryImpl.makeNewBlackKing()
 
         assertTrue(king is King)
-        assertEquals(COLOUR.BLACK, king.getPieceColour())
+        assertEquals(Colour.BLACK, king.colour)
 
     }
 
@@ -187,7 +187,7 @@ class PieceFactoryImplTest {
         val knight: Piece = pieceFactoryImpl.makeNewBlackKnight()
 
         assertTrue(knight is Knight)
-        assertEquals(COLOUR.BLACK, knight.getPieceColour())
+        assertEquals(Colour.BLACK, knight.colour)
 
     }
 
@@ -207,7 +207,7 @@ class PieceFactoryImplTest {
         val pawn: Piece = pieceFactoryImpl.makeNewBlackPawn()
 
         assertTrue(pawn is Pawn)
-        assertEquals(COLOUR.BLACK, pawn.getPieceColour())
+        assertEquals(Colour.BLACK, pawn.colour)
 
 
     }
@@ -228,7 +228,7 @@ class PieceFactoryImplTest {
         val queen: Piece = pieceFactoryImpl.makeNewBlackQueen()
 
         assertTrue(queen is Queen)
-        assertEquals(COLOUR.BLACK, queen.getPieceColour())
+        assertEquals(Colour.BLACK, queen.colour)
 
     }
 
@@ -248,7 +248,7 @@ class PieceFactoryImplTest {
         val rook: Piece = pieceFactoryImpl.makeNewBlackRook()
 
         assertTrue(rook is Rook)
-        assertEquals(COLOUR.BLACK, rook.getPieceColour())
+        assertEquals(Colour.BLACK, rook.colour)
 
     }
 

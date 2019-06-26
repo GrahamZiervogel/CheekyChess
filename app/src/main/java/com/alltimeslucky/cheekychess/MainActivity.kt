@@ -12,7 +12,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import com.alltimeslucky.cheekychess.koin.Module
 import com.alltimeslucky.cheekychess.model.board.Board
-import com.alltimeslucky.cheekychess.view.GridToPixelMapper
+import com.alltimeslucky.cheekychess.view.CoordinateMapper
 import com.alltimeslucky.cheekychess.view.board.BoardRenderer
 import org.koin.android.ext.android.inject
 import org.koin.android.ext.koin.androidContext
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         val boardRenderer: BoardRenderer by inject()
         val constraintLayout = findViewById<ConstraintLayout>(R.id.mainLayout)
-        val gridToPixelMapper: GridToPixelMapper by inject()
+        val coordinateMapper: CoordinateMapper by inject()
 
         val vto = constraintLayout.viewTreeObserver
 
@@ -52,8 +52,8 @@ class MainActivity : AppCompatActivity() {
                     val layoutHeight: Int = constraintLayout.measuredHeight
                     val layoutWidth: Int = constraintLayout.measuredWidth
 
-                    gridToPixelMapper.layoutHeight = layoutHeight
-                    gridToPixelMapper.layoutWidth = layoutWidth
+                    coordinateMapper.layoutHeight = layoutHeight
+                    coordinateMapper.layoutWidth = layoutWidth
 
                     boardRenderer.draw(board, constraintLayout)
 

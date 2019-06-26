@@ -6,7 +6,7 @@
 
 package com.alltimeslucky.cheekychess.model.piece
 
-class King(override val colour: COLOUR) : Piece() {
+class King(override val colour: Colour) : Piece() {
 
     override val pointValue = Int.MAX_VALUE
 

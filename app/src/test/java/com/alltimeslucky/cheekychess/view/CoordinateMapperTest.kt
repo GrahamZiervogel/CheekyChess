@@ -11,19 +11,19 @@ import org.junit.Before
 import org.junit.Test
 import kotlin.properties.Delegates
 
-class GridToPixelMapperTest {
+class CoordinateMapperTest {
 
-    private var gridToPixelMapper: GridToPixelMapper by Delegates.notNull()
+    private var coordinateMapper: CoordinateMapper by Delegates.notNull()
 
     @Before
     fun setup() {
-        gridToPixelMapper = GridToPixelMapper()
+        coordinateMapper = CoordinateMapper()
     }
 
     @Test
     fun getBoardSquareSideLength_shouldReturnZeroWhenNotInitialized() {
 
-        val boardSquareSideLength = gridToPixelMapper.getBoardSquareSideLength()
+        val boardSquareSideLength = coordinateMapper.getBoardSquareSideLength()
 
         assertEquals(0F, boardSquareSideLength)
 
@@ -32,10 +32,10 @@ class GridToPixelMapperTest {
     @Test
     fun getBoardSquareSideLength_shouldReturnBoardSquareSideLength() {
 
-        gridToPixelMapper.layoutHeight = 1584
-        gridToPixelMapper.layoutWidth = 1080
+        coordinateMapper.layoutHeight = 1584
+        coordinateMapper.layoutWidth = 1080
 
-        val boardSquareSideLength = gridToPixelMapper.getBoardSquareSideLength()
+        val boardSquareSideLength = coordinateMapper.getBoardSquareSideLength()
 
         assertEquals(135F, boardSquareSideLength)
 
@@ -44,7 +44,7 @@ class GridToPixelMapperTest {
     @Test
     fun mapGridCoordinatesToPixelCoordinates_shouldMapGridCoordinatesToZeroWhenNotInitialized() {
 
-        val pixelCoordinates = gridToPixelMapper.mapGridCoordinatesToPixelCoordinates(Pair(4, 5))
+        val pixelCoordinates = coordinateMapper.mapGridCoordinatesToPixelCoordinates(Pair(4, 5))
 
         assertEquals(0F, pixelCoordinates.first)
         assertEquals(0F, pixelCoordinates.second)
@@ -54,10 +54,10 @@ class GridToPixelMapperTest {
     @Test
     fun mapGridCoordinatesToPixelCoordinates_shouldMapGridCoordinatesToPixelCoordinates() {
 
-        gridToPixelMapper.layoutHeight = 1584
-        gridToPixelMapper.layoutWidth = 1080
+        coordinateMapper.layoutHeight = 1584
+        coordinateMapper.layoutWidth = 1080
 
-        val pixelCoordinates = gridToPixelMapper.mapGridCoordinatesToPixelCoordinates(Pair(4, 5))
+        val pixelCoordinates = coordinateMapper.mapGridCoordinatesToPixelCoordinates(Pair(4, 5))
 
         assertEquals(792F, pixelCoordinates.first)
         assertEquals(675F, pixelCoordinates.second)
