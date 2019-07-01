@@ -19,38 +19,38 @@ class PieceRendererImpl(private val context: Context, private val coordinateMapp
 
     override fun draw(constraintLayout: ConstraintLayout, gridCoordinates: Pair<Int, Int>, piece: Piece?) {
 
-        val imageView = ImageView(context)
+        val pieceImageView = ImageView(context)
 
         if (piece != null) {
             if (piece.colour == Colour.BLACK) {
                 when (piece) {
-                    is Pawn -> imageView.setImageResource(R.drawable.pawn_gold)
-                    is Rook -> imageView.setImageResource(R.drawable.rook_gold)
-                    is Knight -> imageView.setImageResource(R.drawable.knight_gold)
-                    is Bishop -> imageView.setImageResource(R.drawable.bishop_gold)
-                    is Queen -> imageView.setImageResource(R.drawable.queen_gold)
-                    is King -> imageView.setImageResource(R.drawable.king_gold)
+                    is Pawn -> pieceImageView.setImageResource(R.drawable.pawn_gold)
+                    is Rook -> pieceImageView.setImageResource(R.drawable.rook_gold)
+                    is Knight -> pieceImageView.setImageResource(R.drawable.knight_gold)
+                    is Bishop -> pieceImageView.setImageResource(R.drawable.bishop_gold)
+                    is Queen -> pieceImageView.setImageResource(R.drawable.queen_gold)
+                    is King -> pieceImageView.setImageResource(R.drawable.king_gold)
                 }
             } else if (piece.colour == Colour.WHITE) {
                 when (piece) {
-                    is Pawn -> imageView.setImageResource(R.drawable.pawn_green)
-                    is Rook -> imageView.setImageResource(R.drawable.rook_green)
-                    is Knight -> imageView.setImageResource(R.drawable.knight_green)
-                    is Bishop -> imageView.setImageResource(R.drawable.bishop_green)
-                    is Queen -> imageView.setImageResource(R.drawable.queen_green)
-                    is King -> imageView.setImageResource(R.drawable.king_green)
+                    is Pawn -> pieceImageView.setImageResource(R.drawable.pawn_green)
+                    is Rook -> pieceImageView.setImageResource(R.drawable.rook_green)
+                    is Knight -> pieceImageView.setImageResource(R.drawable.knight_green)
+                    is Bishop -> pieceImageView.setImageResource(R.drawable.bishop_green)
+                    is Queen -> pieceImageView.setImageResource(R.drawable.queen_green)
+                    is King -> pieceImageView.setImageResource(R.drawable.king_green)
                 }
             }
 
-            constraintLayout.addView(imageView)
+            constraintLayout.addView(pieceImageView)
 
             val boardSquareSideLength = coordinateMapper.getBoardSquareSideLength().toInt()
-            imageView.layoutParams.height = boardSquareSideLength
-            imageView.layoutParams.width = boardSquareSideLength
+            pieceImageView.layoutParams.height = boardSquareSideLength
+            pieceImageView.layoutParams.width = boardSquareSideLength
 
             val pixelCoordinates = coordinateMapper.mapGridCoordinatesToPixelCoordinates(gridCoordinates)
-            imageView.x = pixelCoordinates.second
-            imageView.y = pixelCoordinates.first
+            pieceImageView.x = pixelCoordinates.second
+            pieceImageView.y = pixelCoordinates.first
 
         }
 

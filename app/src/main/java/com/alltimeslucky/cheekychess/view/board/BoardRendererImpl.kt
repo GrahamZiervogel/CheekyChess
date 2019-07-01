@@ -11,17 +11,27 @@ import android.support.constraint.ConstraintLayout
 import android.widget.ImageView
 import com.alltimeslucky.cheekychess.R
 import com.alltimeslucky.cheekychess.model.board.Board
+import com.alltimeslucky.cheekychess.view.CoordinateMapper
 import com.alltimeslucky.cheekychess.view.piece.PieceRenderer
 
-class BoardRendererImpl(context: Context, private val pieceRenderer: PieceRenderer) : BoardRenderer {
+class BoardRendererImpl(
+    context: Context,
+    private val pieceRenderer: PieceRenderer,
+    private val coordinateMapper: CoordinateMapper
+) : BoardRenderer {
 
-    private val imageView = ImageView(context)
+    private val boardImageView = ImageView(context)
+    private val highlightImageView = ImageView(context)
+
+    init {
+        boardImageView.setImageResource(R.drawable.board)
+        highlightImageView.setImageResource(R.drawable.square_highlighter)
+    }
 
     override fun draw(board: Board, constraintLayout: ConstraintLayout) {
 
-        imageView.setImageResource(R.drawable.board)
-
-        constraintLayout.addView(imageView)
+        constraintLayout.removeAllViews()
+        constraintLayout.addView(boardImageView)
 
         for (rowIter in 0 until 8) {
             for (colIter in 0 until 8) {
@@ -32,6 +42,23 @@ class BoardRendererImpl(context: Context, private val pieceRenderer: PieceRender
                 pieceRenderer.draw(constraintLayout, gridCoordinates, piece)
 
             }
+        }
+
+        val selectedGridLocation: Pair<Int, Int>? = board.selectedGridLocation
+
+        if (selectedGridLocation != null) {
+
+            val boardSquareSideLength = coordinateMapper.getBoardSquareSideLength().toInt()
+            val pixelCoordinates = coordinateMapper.mapGridCoordinatesToPixelCoordinates(selectedGridLocation)
+
+            constraintLayout.addView(highlightImageView)
+
+            highlightImageView.layoutParams.height = boardSquareSideLength
+            highlightImageView.layoutParams.width = boardSquareSideLength
+
+            highlightImageView.x = pixelCoordinates.second
+            highlightImageView.y = pixelCoordinates.first
+
         }
 
     }

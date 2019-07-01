@@ -6,6 +6,7 @@
 
 package com.alltimeslucky.cheekychess.koin
 
+import com.alltimeslucky.cheekychess.controller.BoardController
 import com.alltimeslucky.cheekychess.model.board.Board
 import com.alltimeslucky.cheekychess.model.board.BoardImpl
 import com.alltimeslucky.cheekychess.model.piece.PieceFactory
@@ -24,7 +25,8 @@ class Module {
         val appModule = module {
 
             single<Board> { BoardImpl(get()) }
-            single<BoardRenderer> { BoardRendererImpl(get(), get()) }
+            single { BoardController(get(), get()) }
+            single<BoardRenderer> { BoardRendererImpl(get(), get(), get()) }
             single { CoordinateMapper() }
             single<PieceFactory> { PieceFactoryImpl() }
             single<PieceRenderer> { PieceRendererImpl(get(), get()) }

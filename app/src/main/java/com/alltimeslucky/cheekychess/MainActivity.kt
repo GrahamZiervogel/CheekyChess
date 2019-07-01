@@ -6,10 +6,12 @@
 
 package com.alltimeslucky.cheekychess
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.v7.app.AppCompatActivity
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
+import com.alltimeslucky.cheekychess.controller.BoardController
 import com.alltimeslucky.cheekychess.koin.Module
 import com.alltimeslucky.cheekychess.model.board.Board
 import com.alltimeslucky.cheekychess.view.CoordinateMapper
@@ -22,6 +24,7 @@ import org.koin.core.context.startKoin
 
 class MainActivity : AppCompatActivity() {
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -39,7 +42,20 @@ class MainActivity : AppCompatActivity() {
 
         val boardRenderer: BoardRenderer by inject()
         val constraintLayout = findViewById<ConstraintLayout>(R.id.mainLayout)
+
         val coordinateMapper: CoordinateMapper by inject()
+        val boardController: BoardController by inject()
+
+        constraintLayout.setOnTouchListener { _, motionEvent ->
+
+            val layoutPixelColumn = motionEvent.x
+            val layoutPixelRow = motionEvent.y
+
+            boardController.selectPiece(Pair(layoutPixelRow, layoutPixelColumn))
+            boardRenderer.draw(board, constraintLayout)
+
+            true
+        }
 
         val vto = constraintLayout.viewTreeObserver
 

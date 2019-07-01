@@ -6,15 +6,19 @@
 
 package com.alltimeslucky.cheekychess.view
 
+import com.alltimeslucky.cheekychess.model.board.BoardImpl
+
 class CoordinateMapper {
 
     private var boardSquareSideLength: Float = 0F
+    private var topAndBottomExcess: Float = 0F
 
     var layoutHeight: Int = 0
     var layoutWidth: Int = 0
         set(value) {
             field = value
-            boardSquareSideLength = value / 8F
+            boardSquareSideLength = value.toFloat() / BoardImpl.WIDTH.toFloat()
+            topAndBottomExcess = (layoutHeight - layoutWidth) / 2F
         }
 
     fun getBoardSquareSideLength(): Float {
@@ -25,8 +29,6 @@ class CoordinateMapper {
 
     fun mapGridCoordinatesToPixelCoordinates(gridCoordinates: Pair<Int, Int>): Pair<Float, Float> {
 
-        val topAndBottomExcess = (layoutHeight - layoutWidth) / 2F
-
         val startPixelRow = topAndBottomExcess + boardSquareSideLength * gridCoordinates.first
         val startPixelCol = boardSquareSideLength * gridCoordinates.second
 
@@ -36,8 +38,10 @@ class CoordinateMapper {
 
     fun mapPixelCoordinatesToGridCoordinates(pixelCoordinates: Pair<Float, Float>): Pair<Int, Int> {
 
-        // TODO: HOLLLLLLAAAAAAAAAAAAAA
-        return Pair(0, 0)
+        val gridRow = (pixelCoordinates.first - topAndBottomExcess) / boardSquareSideLength
+        val gridCol = pixelCoordinates.second / boardSquareSideLength
+
+        return Pair(gridRow.toInt(), gridCol.toInt())
 
     }
 
