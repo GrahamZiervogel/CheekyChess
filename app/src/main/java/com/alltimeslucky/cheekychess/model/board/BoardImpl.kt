@@ -15,10 +15,16 @@ class BoardImpl(private val pieceFactory: PieceFactory) : Board {
         Array(WIDTH) { null }
     }
 
-    override var selectedGridLocation: Pair<Int, Int>? = null
-
     override fun getGridElement(gridCoordinates: Pair<Int, Int>): Piece? {
         return pieceGrid[gridCoordinates.first][gridCoordinates.second]
+    }
+
+    override fun getHeight(): Int {
+        return HEIGHT
+    }
+
+    override fun getWidth(): Int {
+        return WIDTH
     }
 
     override fun initializeGrid() {
@@ -55,9 +61,34 @@ class BoardImpl(private val pieceFactory: PieceFactory) : Board {
 
     }
 
+    override fun isOccupied(gridCoordinates: Pair<Int, Int>): Boolean {
+        return pieceGrid[gridCoordinates.first][gridCoordinates.second] != null
+    }
+
+    override fun move(firstGridCoordinates: Pair<Int, Int>, secondGridCoordinates: Pair<Int, Int>): Boolean {
+
+        val firstPiece = pieceGrid[firstGridCoordinates.first][firstGridCoordinates.second]
+        val secondPiece = pieceGrid[secondGridCoordinates.first][secondGridCoordinates.second]
+
+        return if (firstPiece?.colour == secondPiece?.colour) {
+
+            false
+
+        } else {
+
+            pieceGrid[secondGridCoordinates.first][secondGridCoordinates.second] =
+                pieceGrid[firstGridCoordinates.first][firstGridCoordinates.second]
+            pieceGrid[firstGridCoordinates.first][firstGridCoordinates.second] = null
+
+            true
+
+        }
+
+    }
+
     companion object {
         private const val HEIGHT = 8
-        const val WIDTH = 8
+        private const val WIDTH = 8
     }
 
 }

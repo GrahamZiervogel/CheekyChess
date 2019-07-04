@@ -6,19 +6,15 @@
 
 package com.alltimeslucky.cheekychess.controller
 
-import com.alltimeslucky.cheekychess.model.board.Board
+import com.alltimeslucky.cheekychess.model.selection.Selection
 import com.alltimeslucky.cheekychess.view.CoordinateMapper
 
-class BoardController(private val board: Board, private val coordinateMapper: CoordinateMapper) {
+class SelectionController(private val coordinateMapper: CoordinateMapper, private val selection: Selection) {
 
-    fun selectPiece(pixelCoordinates: Pair<Float, Float>) {
+    fun select(pixelCoordinates: Pair<Float, Float>) {
 
         val gridCoordinates = coordinateMapper.mapPixelCoordinatesToGridCoordinates(pixelCoordinates)
-        board.selectedGridLocation = gridCoordinates
-
-    }
-
-    private fun movePiece() {
+        selection.set(gridCoordinates)
 
     }
 

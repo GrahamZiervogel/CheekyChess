@@ -6,6 +6,8 @@
 
 package com.alltimeslucky.cheekychess.view
 
+import com.alltimeslucky.cheekychess.model.board.BoardImpl
+import com.alltimeslucky.cheekychess.model.piece.PieceFactoryImpl
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -17,7 +19,7 @@ class CoordinateMapperTest {
 
     @Before
     fun setup() {
-        coordinateMapper = CoordinateMapper()
+        coordinateMapper = CoordinateMapper(BoardImpl(PieceFactoryImpl()))
     }
 
     @Test

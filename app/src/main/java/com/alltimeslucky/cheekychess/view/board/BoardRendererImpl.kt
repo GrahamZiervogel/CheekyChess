@@ -11,13 +11,15 @@ import android.support.constraint.ConstraintLayout
 import android.widget.ImageView
 import com.alltimeslucky.cheekychess.R
 import com.alltimeslucky.cheekychess.model.board.Board
+import com.alltimeslucky.cheekychess.model.selection.Selection
 import com.alltimeslucky.cheekychess.view.CoordinateMapper
 import com.alltimeslucky.cheekychess.view.piece.PieceRenderer
 
 class BoardRendererImpl(
     context: Context,
     private val pieceRenderer: PieceRenderer,
-    private val coordinateMapper: CoordinateMapper
+    private val coordinateMapper: CoordinateMapper,
+    private val selection: Selection
 ) : BoardRenderer {
 
     private val boardImageView = ImageView(context)
@@ -44,7 +46,7 @@ class BoardRendererImpl(
             }
         }
 
-        val selectedGridLocation: Pair<Int, Int>? = board.selectedGridLocation
+        val selectedGridLocation: Pair<Int, Int>? = selection.get()
 
         if (selectedGridLocation != null) {
 

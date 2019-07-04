@@ -6,9 +6,9 @@
 
 package com.alltimeslucky.cheekychess.view
 
-import com.alltimeslucky.cheekychess.model.board.BoardImpl
+import com.alltimeslucky.cheekychess.model.board.Board
 
-class CoordinateMapper {
+class CoordinateMapper(private val board: Board) {
 
     private var boardSquareSideLength: Float = 0F
     private var topAndBottomExcess: Float = 0F
@@ -17,7 +17,7 @@ class CoordinateMapper {
     var layoutWidth: Int = 0
         set(value) {
             field = value
-            boardSquareSideLength = value.toFloat() / BoardImpl.WIDTH.toFloat()
+            boardSquareSideLength = value.toFloat() / board.getWidth().toFloat()
             topAndBottomExcess = (layoutHeight - layoutWidth) / 2F
         }
 

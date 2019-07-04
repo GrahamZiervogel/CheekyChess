@@ -10,8 +10,9 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.v7.app.AppCompatActivity
+import android.view.MotionEvent
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
-import com.alltimeslucky.cheekychess.controller.BoardController
+import com.alltimeslucky.cheekychess.controller.SelectionController
 import com.alltimeslucky.cheekychess.koin.Module
 import com.alltimeslucky.cheekychess.model.board.Board
 import com.alltimeslucky.cheekychess.view.CoordinateMapper
@@ -44,17 +45,22 @@ class MainActivity : AppCompatActivity() {
         val constraintLayout = findViewById<ConstraintLayout>(R.id.mainLayout)
 
         val coordinateMapper: CoordinateMapper by inject()
-        val boardController: BoardController by inject()
+        val selectionController: SelectionController by inject()
 
         constraintLayout.setOnTouchListener { _, motionEvent ->
 
-            val layoutPixelColumn = motionEvent.x
-            val layoutPixelRow = motionEvent.y
+            if (motionEvent.action == MotionEvent.ACTION_DOWN) {
 
-            boardController.selectPiece(Pair(layoutPixelRow, layoutPixelColumn))
-            boardRenderer.draw(board, constraintLayout)
+                val layoutPixelColumn = motionEvent.x
+                val layoutPixelRow = motionEvent.y
+
+                selectionController.select(Pair(layoutPixelRow, layoutPixelColumn))
+                boardRenderer.draw(board, constraintLayout)
+
+            }
 
             true
+
         }
 
         val vto = constraintLayout.viewTreeObserver

@@ -80,14 +80,14 @@ class BoardImplTest {
 
         row = 1
 
-        for (column in 0 until BoardImpl.WIDTH) {
+        for (column in 0 until boardImpl.getWidth()) {
             piece = boardImpl.getGridElement(Pair(row, column))
             assertTrue(piece is Pawn)
             assertEquals(Colour.BLACK, piece?.colour)
         }
 
         for (rowIter in 2 until 6) {
-            for (column in 0 until BoardImpl.WIDTH) {
+            for (column in 0 until boardImpl.getWidth()) {
                 piece = boardImpl.getGridElement(Pair(rowIter, column))
                 assertNull(piece)
             }
@@ -95,7 +95,7 @@ class BoardImplTest {
 
         row = 6
 
-        for (column in 0 until BoardImpl.WIDTH) {
+        for (column in 0 until boardImpl.getWidth()) {
             piece = boardImpl.getGridElement(Pair(row, column))
             assertTrue(piece is Pawn)
             assertEquals(Colour.WHITE, piece?.colour)
