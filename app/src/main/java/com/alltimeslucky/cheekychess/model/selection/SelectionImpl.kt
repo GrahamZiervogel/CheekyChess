@@ -13,6 +13,11 @@ class SelectionImpl(private val board: Board) : Selection {
 
     private var selectedGridCoordinates: Pair<Int, Int>? = null
 
+
+    override fun get(): Pair<Int, Int>? {
+        return selectedGridCoordinates
+    }
+
     override fun set(gridCoordinates: Pair<Int, Int>) {
 
         if (gridCoordinates.first < 0 || gridCoordinates.first > board.getHeight() - 1 ||
@@ -29,6 +34,8 @@ class SelectionImpl(private val board: Board) : Selection {
             if (firstGridCoordinatesCopy == null && piece != null) {
 
                 selectedGridCoordinates = gridCoordinates
+
+                piece.getPossibleMoveSquares(board, gridCoordinates)
 
             } else if (firstGridCoordinatesCopy != null) {
 
@@ -50,10 +57,6 @@ class SelectionImpl(private val board: Board) : Selection {
 
         }
 
-    }
-
-    override fun get(): Pair<Int, Int>? {
-        return selectedGridCoordinates
     }
 
 }

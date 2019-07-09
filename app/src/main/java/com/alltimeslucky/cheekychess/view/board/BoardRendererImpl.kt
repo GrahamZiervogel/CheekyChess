@@ -27,7 +27,7 @@ class BoardRendererImpl(
 
     init {
         boardImageView.setImageResource(R.drawable.board)
-        highlightImageView.setImageResource(R.drawable.square_highlighter)
+        highlightImageView.setImageResource(R.drawable.selection_highlight_border)
     }
 
     override fun draw(board: Board, constraintLayout: ConstraintLayout) {

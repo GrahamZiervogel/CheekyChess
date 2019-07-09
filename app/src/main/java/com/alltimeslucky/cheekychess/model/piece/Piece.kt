@@ -6,9 +6,13 @@
 
 package com.alltimeslucky.cheekychess.model.piece
 
+import com.alltimeslucky.cheekychess.model.board.Board
+
 abstract class Piece {
 
-    protected abstract val pointValue: Int
     abstract val colour: Colour
+    protected abstract val pointValue: Int
+
+    abstract fun getPossibleMoveSquares(board: Board, gridCoordinates: Pair<Int, Int>): List<Pair<Int, Int>>
 
 }

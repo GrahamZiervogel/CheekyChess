@@ -8,7 +8,7 @@ package com.alltimeslucky.cheekychess.model.selection
 
 interface Selection {
 
-    fun set(gridCoordinates: Pair<Int, Int>)
     fun get(): Pair<Int, Int>?
+    fun set(gridCoordinates: Pair<Int, Int>)
 
 }
